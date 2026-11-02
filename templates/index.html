@@ -54,6 +54,26 @@
             font-weight: 800;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .settings-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
         .btn-primary {
             background: linear-gradient(90deg, #3b82f6, #6366f1);
             color: white;
@@ -244,7 +264,10 @@
             <div class="logo-icon">C</div>
             Clearline Digital
         </div>
-        <a href="#demo" class="btn-primary">Get in Touch</a>
+        <div class="nav-right">
+            <a href="#contact" class="settings-btn" title="Settings">⚙️</a>
+            <a href="#demo" class="btn-primary">Get in Touch</a>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -253,7 +276,7 @@
         <h1>Custom Software Engineering & <span>Automated Data Systems</span></h1>
         <p>Delivering agile software engineering, custom data processing pipelines, and modern web infrastructure for government agencies and commercial enterprises.</p>
         <div>
-            <a href="#demo" class="btn-primary" style="margin-right: 1rem;">Explore Capabilities</a>
+            <a href="#services" class="btn-primary" style="margin-right: 1rem;">Explore Capabilities</a>
             <a href="#contact" style="color: var(--text-main); text-decoration: none; font-weight: 600; border: 1px solid var(--border-color); padding: 0.6rem 1.4rem; border-radius: 8px; display: inline-block;">Contact Us</a>
         </div>
     </section>
@@ -269,7 +292,7 @@
     </div>
 
     <!-- Core Services Grid -->
-    <div class="container">
+    <div class="container" id="services">
         <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">Our Core Services</h2>
         <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Engineered to streamline organizational operations, automate high-volume data streams, and build resilient digital platforms.</p>
         <div class="grid">
@@ -321,19 +344,30 @@
         </div>
     </section>
 
+    <!-- Bottom Corporate Profile Summary Card -->
+    <div class="container">
+        <div class="card" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem; color: white;">
+                <div style="background: var(--accent-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 0.8rem;">C</div>
+                Clearline Digital Solutions LLC
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">High-performance digital engineering, automated lead processing frameworks, and custom software solutions tailored for public sector contracts and enterprise operational workflows.</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;"><strong>UEI:</strong> DEWLJ1MGJ495 &nbsp;|&nbsp; <strong>NAICS:</strong> 541511, 541512, 518210</p>
+        </div>
+    </div>
+
     <!-- Direct Contact Section -->
-    <div class="container" id="contact" style="text-align: center; margin-bottom: 4rem;">
+    <div class="container" id="contact" style="text-align: center; margin-bottom: 2rem;">
         <div class="card" style="max-width: 600px; margin: 0 auto;">
             <h2 style="margin-top: 0;">Direct Contact & Inquiries</h2>
             <p style="margin-bottom: 1.5rem;">Have an inquiry or project proposal? Send a direct note to our team.</p>
-            <a href="mailto:k_oss51@yahoo.com" class="btn-primary" style="display: inline-block;">Launch Contact Form / Email</a>
+            <a href="mailto:k_oss51@yahoo.com" class="btn-primary" style="display: inline-block;">Launch Contact Form</a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>© 2026 Clearline Digital Solutions LLC. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;">UEI: DEWLJ1MGJ495 | NAICS: 541511, 541512, 518210</p>
         <div class="footer-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
