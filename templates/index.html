@@ -218,6 +218,22 @@
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
         }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
     </style>
 </head>
 <body>
@@ -228,7 +244,7 @@
             <div class="logo-icon">C</div>
             Clearline Digital
         </div>
-        <a href="#demo" class="btn-primary">Try Free Demo</a>
+        <a href="#demo" class="btn-primary">Get in Touch</a>
     </nav>
 
     <!-- Hero Section -->
@@ -236,6 +252,10 @@
         <div class="badge">● SAM.gov Active Contracting Partner | UEI: DEWLJ1MGJ495</div>
         <h1>Custom Software Engineering & <span>Automated Data Systems</span></h1>
         <p>Delivering agile software engineering, custom data processing pipelines, and modern web infrastructure for government agencies and commercial enterprises.</p>
+        <div>
+            <a href="#demo" class="btn-primary" style="margin-right: 1rem;">Explore Capabilities</a>
+            <a href="#contact" style="color: var(--text-main); text-decoration: none; font-weight: 600; border: 1px solid var(--border-color); padding: 0.6rem 1.4rem; border-radius: 8px; display: inline-block;">Contact Us</a>
+        </div>
     </section>
 
     <!-- SAM.gov Profile Details -->
@@ -250,7 +270,8 @@
 
     <!-- Core Services Grid -->
     <div class="container">
-        <h2 style="text-align: center; font-size: 2rem;">Our Core Services</h2>
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">Our Core Services</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Engineered to streamline organizational operations, automate high-volume data streams, and build resilient digital platforms.</p>
         <div class="grid">
             <div class="card">
                 <h3>Process & Workflow Automation</h3>
@@ -264,6 +285,15 @@
                 <h3>AI & Machine Learning Tasks</h3>
                 <p>Train intelligent models to handle specialized repetitive tasks, smart data processing, metadata tagging, and automated record-cleansing workflows.</p>
             </div>
+        </div>
+    </div>
+
+    <!-- Strict Data Security Section -->
+    <div class="container">
+        <div class="card">
+            <span style="color: #10b981; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Enterprise Privacy Guarantee</span>
+            <h2 style="margin-top: 0.5rem; margin-bottom: 1rem;">Strict Data Security & Complete Confidentiality</h2>
+            <p>We know that trusting an external partner with your sensitive files and systems is a major decision. Clearline Digital Solutions is built on a foundation of strict data privacy and security—meaning your client personal information remains fully protected at all times, and as the owner, your data is handled with absolute integrity and never used or sold for gain.</p>
         </div>
     </div>
 
@@ -291,10 +321,24 @@
         </div>
     </section>
 
+    <!-- Direct Contact Section -->
+    <div class="container" id="contact" style="text-align: center; margin-bottom: 4rem;">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="margin-top: 0;">Direct Contact & Inquiries</h2>
+            <p style="margin-bottom: 1.5rem;">Have an inquiry or project proposal? Send a direct note to our team.</p>
+            <a href="mailto:k_oss51@yahoo.com" class="btn-primary" style="display: inline-block;">Launch Contact Form / Email</a>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>© 2026 Clearline Digital Solutions LLC. All rights reserved.</p>
-        <p>UEI: DEWLJ1MGJ495 | NAICS: 541511, 541512, 518210</p>
+        <p style="margin-top: 0.5rem;">UEI: DEWLJ1MGJ495 | NAICS: 541511, 541512, 518210</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Capabilities Statement</a>
+        </div>
     </footer>
 
     <!-- Form Handler JS -->
