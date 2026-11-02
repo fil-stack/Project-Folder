@@ -1,0 +1,5 @@
+*.xlsx
+*.csv
+*.log
+Generated_Proposals/
+__pycache__/
