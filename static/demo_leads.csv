@@ -1,0 +1,4 @@
+CompanyName,ContactName,Email,ServiceNeeded,EstimatedHours
+Acme Logistics,John Smith,john@acmemfg.com,Invoice Parsing,15
+Apex Transport,Sarah Jenkins,sarah@apextransport.com,Daily Manifest Automation,20
+Beta Fleet Corp,Mike Davis,mike@betafleet.com,Pre-Tax Data Cleansing,10
