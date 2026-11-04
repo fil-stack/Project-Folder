@@ -3,406 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clearline Digital Solutions LLC</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
-            --border-color: #1f2937;
-            --accent-blue: #00a3ff;
-            --accent-purple: #6366f1;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-
-        .logo-icon {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-weight: 800;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .settings-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, #3b82f6, #6366f1);
-            color: white;
-            padding: 0.6rem 1.4rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 163, 255, 0.1);
-            border: 1px solid rgba(0, 163, 255, 0.3);
-            color: var(--accent-blue);
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        /* Content Containers */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.75rem;
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.25rem;
-            color: var(--text-main);
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        /* Demo App Section */
-        .demo-section {
-            background: linear-gradient(180deg, var(--bg-color), #0d1322);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 4rem 1rem;
-            margin: 3rem 0;
-        }
-
-        .upload-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 550px;
-            margin: 2rem auto 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input[type="email"],
-        .form-group input[type="file"] {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #0b0f19;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: white;
-            box-sizing: border-box;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: #00a3ff;
-            color: white;
-            padding: 0.8rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .btn-submit:hover {
-            background: #008ee6;
-        }
-
-        #resultArea {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: #0b0f19;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 0.85rem;
-            display: none;
-            word-break: break-all;
-            white-space: pre-wrap;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-blue);
-        }
-    </style>
+    <title>Clearline Digital Solutions LLC | Custom Software & Data Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Navbar -->
-    <nav>
-        <div class="logo">
-            <div class="logo-icon">C</div>
-            Clearline Digital
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-indigo-500/30">C</div>
+                <span class="font-bold text-lg tracking-tight text-white">Clearline Digital Solutions</span>
+            </div>
+            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-md shadow-indigo-600/20">Get in Touch</a>
         </div>
-        <div class="nav-right">
-            <a href="#contact" class="settings-btn" title="Settings">⚙️</a>
-            <a href="#demo" class="btn-primary">Get in Touch</a>
-        </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="badge">● SAM.gov Active Contracting Partner | UEI: DEWLJ1MGJ495</div>
-        <h1>Custom Software Engineering & <span>Automated Data Systems</span></h1>
-        <p>Delivering agile software engineering, custom data processing pipelines, and modern web infrastructure for government agencies and commercial enterprises.</p>
-        <div>
-            <a href="/static/Clearline_Capability_Statement.pdf" class="btn-primary" style="margin-right: 1rem;" download="Clearline_Capability_Statement.pdf">Download Capabilities Statement</a>
-            <a href="#contact" style="color: var(--text-main); text-decoration: none; font-weight: 600; border: 1px solid var(--border-color); padding: 0.6rem 1.4rem; border-radius: 8px; display: inline-block;">Contact Us</a>
+    <section class="py-16 md:py-24 max-w-5xl mx-auto px-4 text-center">
+        <div class="inline-flex items-center space-x-2 bg-indigo-950/80 border border-indigo-800/50 text-indigo-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>SAM.gov Active Contracting Partner | UEI: DEWLJ1MGJ495</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+            Custom Software Engineering & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Automated Data Systems</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Eliminate repetitive daily employee data entry, streamline financial records, and automate form-filling pipelines for commercial enterprises and government agencies.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="/static/Clearline_Capability_Statement.pdf" download class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg shadow-indigo-600/30 transition-all flex items-center space-x-2">
+                <i class="fas font-solid fa-file-arrow-down"></i>
+                <span>Download Capabilities Statement</span>
+            </a>
+            <a href="#contact" class="border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-semibold px-6 py-3 rounded-lg transition-all">Contact Us</a>
         </div>
     </section>
 
-    <!-- SAM.gov Profile Details -->
-    <div class="container">
-        <div class="card">
-            <span style="color: #10b981; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Government Entity Profile</span>
-            <h2 style="margin-top: 0.5rem; margin-bottom: 1rem;">Clearline Digital Solutions LLC</h2>
-            <p><strong>UEI:</strong> DEWLJ1MGJ495 | <strong>Status:</strong> Active / Eligible for Award</p>
-            <p style="margin-top: 0.5rem;"><strong>Primary NAICS:</strong> 541511 (Custom Computer Programming), 541512 (Computer Systems Design), 518210 (Data Processing & Hosting)</p>
+    <!-- Government Entity Profile Card -->
+    <section class="max-w-5xl mx-auto px-4 mb-16">
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">Government Entity Profile</p>
+            <h2 class="text-xl font-bold text-white mb-3">Clearline Digital Solutions LLC</h2>
+            <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-300">
+                <p><span class="text-slate-500">UEI:</span> DEWLJ1MGJ495 | <span class="text-emerald-400 font-medium">Status: Active / Eligible for Award</span></p>
+                <p><span class="text-slate-500">Primary NAICS:</span> 541511, 541512, 518210</p>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Core Services Grid -->
-    <div class="container" id="services">
-        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">Our Core Services</h2>
-        <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Engineered to streamline organizational operations, automate high-volume data streams, and build resilient digital platforms.</p>
-        <div class="grid">
-            <div class="card">
-                <h3>Process & Workflow Automation</h3>
-                <p>Eliminate repetitive tasks, automate data entry, and connect your everyday software tools seamlessly using high-reliability execution scripts and pipelines.</p>
+    <section class="max-w-6xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-3">Our Core Capabilities</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">Engineered to eliminate manual admin overhead, protect profit margins, and maintain absolute data integrity.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <!-- Service 1 -->
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+                <div class="w-10 h-10 rounded-lg bg-indigo-900/50 text-indigo-400 flex items-center justify-center mb-4 text-lg"><i class="fas fa-bolt"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Automated Form & Document Filling</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Eliminate daily manual paperwork. Our custom scripts take raw employee inputs or dispatch logs and instantly generate completed daily PDFs, manifests, and compliance forms in seconds.</p>
             </div>
-            <div class="card">
-                <h3>Custom Digital Solutions</h3>
-                <p>Tailored software integrations, lightweight web setups, and digital tools configured specifically for your mission-critical or business-specific operational needs.</p>
+
+            <!-- Service 2 -->
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+                <div class="w-10 h-10 rounded-lg bg-emerald-900/50 text-emerald-400 flex items-center justify-center mb-4 text-lg"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Pre-CPA Data Cleansing & Anomaly Detection</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Save thousands on billable accounting hours. We parse raw spreadsheets, invoices, and bank statements to flag duplicate entries, missing receipts, and spending discrepancies before handing data to your CPA.</p>
             </div>
-            <div class="card">
-                <h3>AI & Machine Learning Tasks</h3>
-                <p>Train intelligent models to handle specialized repetitive tasks, smart data processing, metadata tagging, and automated record-cleansing workflows.</p>
+
+            <!-- Service 3 -->
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+                <div class="w-10 h-10 rounded-lg bg-purple-900/50 text-purple-400 flex items-center justify-center mb-4 text-lg"><i class="fas fa-brain"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Workflow Automation & AI Tasks</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Connect your everyday software tools seamlessly. We deploy high-reliability execution pipelines that automate data transfer, metadata tagging, and record-cleansing workflows.</p>
             </div>
         </div>
-    </div>
 
-    <!-- Strict Data Security Section -->
-    <div class="container">
-        <div class="card">
-            <span style="color: #10b981; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Enterprise Privacy Guarantee</span>
-            <h2 style="margin-top: 0.5rem; margin-bottom: 1rem;">Strict Data Security & Complete Confidentiality</h2>
-            <p>We know that trusting an external partner with your sensitive files and systems is a major decision. Clearline Digital Solutions is built on a foundation of strict data privacy and security—meaning your client personal information remains fully protected at all times, and as the owner, your data is handled with absolute integrity and never used or sold for gain.</p>
-        </div>
-    </div>
-
-    <!-- Interactive Free Trial App Section -->
-    <section class="demo-section" id="demo">
-        <div class="container" style="text-align: center;">
-            <h2>Test Our Automated Parsing Engine</h2>
-            <p style="color: var(--text-muted);">Upload a CSV (max 50 rows processed) or PDF (max 2 pages processed) to test live data extraction.</p>
-            
-            <div class="upload-box">
-                <form id="uploadForm">
-                    <div class="form-group">
-                        <label for="email">Business Email</label>
-                        <input type="email" id="email" name="email" placeholder="name@company.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="file">Select File (CSV or PDF)</label>
-                        <input type="file" id="file" name="file" accept=".csv, .pdf" required>
-                    </div>
-                    <button type="submit" class="btn-submit">Process Trial Data</button>
-                </form>
-
-                <div id="resultArea"></div>
+        <!-- ROI / Hours Saved Callout Banner -->
+        <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-slate-950 border border-indigo-800/40 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold text-white mb-2">Stop Paying Employees to Do Manual Data Entry</h3>
+            <p class="text-slate-300 max-w-2xl mx-auto text-sm leading-relaxed mb-6">
+                An employee spending 2 hours per day copying data into spreadsheets costs a business over 40 hours a month in administrative overhead (~$1,000–$1,500/mo). Clearline’s automated ingestion pipelines slash processing time by **90%**, putting those hours and money right back into your bottom line.
+            </p>
+            <div class="inline-flex items-center space-x-6 text-sm text-indigo-300">
+                <div><span class="text-2xl font-bold text-white block">90%</span> Hours Cut</div>
+                <div class="h-8 w-px bg-slate-800"></div>
+                <div><span class="text-2xl font-bold text-white block">100%</span> Local Data Privacy</div>
+                <div class="h-8 w-px bg-slate-800"></div>
+                <div><span class="text-2xl font-bold text-white block">0</span> Copy-Paste Errors</div>
             </div>
         </div>
     </section>
 
-    <!-- Bottom Corporate Profile Summary Card -->
-    <div class="container">
-        <div class="card" style="display: flex; flex-direction: column; gap: 0.5rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem; color: white;">
-                <div style="background: var(--accent-blue); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-size: 0.8rem;">C</div>
-                Clearline Digital Solutions LLC
+    <!-- Interactive Demo Section (Updated UX) -->
+    <section class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-10 shadow-2xl">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Live Interactive Feature</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Test Our Automated Parsing Engine</h2>
+                <p class="text-slate-400 text-sm mt-2 max-w-xl mx-auto">
+                    See how our backend automatically extracts, cleans, and structures raw files into usable reports.
+                </p>
             </div>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">High-performance digital engineering, automated lead processing frameworks, and custom software solutions tailored for public sector contracts and enterprise operational workflows.</p>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;"><strong>UEI:</strong> DEWLJ1MGJ495 &nbsp;|&nbsp; <strong>NAICS:</strong> 541511, 541512, 518210</p>
-        </div>
-    </div>
 
-    <!-- Direct Contact Section -->
-    <div class="container" id="contact" style="text-align: center; margin-bottom: 2rem;">
-        <div class="card" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="margin-top: 0;">Direct Contact & Inquiries</h2>
-            <p style="margin-bottom: 1.5rem;">Have an inquiry or project proposal? Send a direct note to our team.</p>
-            <a href="mailto:k_oss51@yahoo.com" class="btn-primary" style="display: inline-block;">Launch Contact Form</a>
+            <!-- How it works instructions -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8 text-center text-xs">
+                <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                    <span class="font-bold text-indigo-400 block mb-1">1. Choose or Download File</span>
+                    <span class="text-slate-400">Use your own CSV/PDF or download our sample test files below.</span>
+                </div>
+                <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                    <span class="font-bold text-indigo-400 block mb-1">2. Run Extraction Engine</span>
+                    <span class="text-slate-400">Our Flask pipeline parses headers, rows, and structured text automatically.</span>
+                </div>
+                <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
+                    <span class="font-bold text-indigo-400 block mb-1">3. Instant Output</span>
+                    <span class="text-slate-400">View cleaned JSON data ready for database ingestion or reporting.</span>
+                </div>
+            </div>
+
+            <!-- Sample Download Helpers -->
+            <div class="flex justify-center items-center space-x-4 mb-6">
+                <a href="/static/demo_leads.csv" download class="text-xs text-indigo-400 hover:text-indigo-300 underline flex items-center space-x-1">
+                    <i class="fas fa-download"></i><span>Download Sample CSV</span>
+                </a>
+            </div>
+
+            <form id="demo-form" class="space-y-4 max-w-lg mx-auto">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Business Email</label>
+                    <input type="email" id="demo-email" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Select File (CSV or PDF)</label>
+                    <input type="file" id="demo-file" accept=".csv, .pdf" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-slate-300 text-xs file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500">
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-md shadow-indigo-600/20">Process Trial Data</button>
+            </form>
+
+            <div id="demo-results" class="hidden mt-6 bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs font-mono text-emerald-400 overflow-x-auto max-h-60">
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Privacy Disclaimer Banner -->
+    <section class="max-w-4xl mx-auto px-4 mb-16">
+        <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-6 text-center text-xs text-slate-400">
+            <h4 class="font-semibold text-slate-200 mb-1">Strict Data Security & Confidentiality</h4>
+            <p class="leading-relaxed max-w-2xl mx-auto">
+                Clearline Digital Solutions LLC operates as a technical software service provider. All client processing files are handled with absolute data integrity and confidentiality. Clearline provides automated software pipelines and data integrity tooling, not formal CPA attestation or accounting opinion services.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-slate-900/80 border-t border-slate-800 py-12">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-2">Direct Contact & Inquiries</h2>
+            <p class="text-slate-400 text-sm mb-6">Have a custom data entry problem, repetitive paperwork need, or project inquiry? Send us a direct note.</p>
+            
+            <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4 max-w-md mx-auto text-left">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
+                    <input type="text" id="contact-name" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Business Email</label>
+                    <input type="email" id="contact-email" required placeholder="john@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Message / Project Details</label>
+                    <textarea id="contact-message" required rows="3" placeholder="Tell us about your project or data entry bottleneck..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-md shadow-indigo-600/20">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2026 Clearline Digital Solutions LLC. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="/static/Clearline_Capabilities_Statement.txt" download="Clearline_Capabilities_Statement.txt">Capabilities Statement</a>
-        </div>
+    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Clearline Digital Solutions LLC. All rights reserved.</p>
     </footer>
 
-    <!-- Form Handler JS -->
+    <!-- Frontend Form Handling Script -->
     <script>
-        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+        // Interactive Demo Upload Handler
+        document.getElementById('demo-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const resultDiv = document.getElementById('resultArea');
-            resultDiv.style.display = 'block';
-            resultDiv.textContent = 'Processing file...';
+            const fileInput = document.getElementById('demo-file');
+            const resultsDiv = document.getElementById('demo-results');
+            
+            if (!fileInput.files.length) return;
 
             const formData = new FormData();
-            formData.append('email', document.getElementById('email').value);
-            formData.append('file', document.getElementById('file').files[0]);
+            formData.append('file', fileInput.files[0]);
+
+            resultsDiv.classList.remove('hidden');
+            resultsDiv.innerText = "Processing file through Flask backend engine...";
 
             try {
                 const response = await fetch('/api/process-demo', {
                     method: 'POST',
                     body: formData
                 });
-                const data = await response.json();
-                
-                if (response.ok) {
-                    resultDiv.textContent = JSON.stringify(data, null, 2);
-                } else {
-                    resultDiv.textContent = 'Error: ' + (data.error || 'Processing failed.');
-                }
+                const result = await response.json();
+                resultsDiv.innerText = JSON.stringify(result, null, 2);
             } catch (err) {
-                resultDiv.textContent = 'Network error: ' + err.message;
+                resultsDiv.innerText = "Error processing file. Please ensure file is valid CSV or PDF.";
             }
         });
+
+        // Contact Form Endpoint Handler
+        async function submitContactForm(event) {
+            event.preventDefault();
+            const formData = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                message: document.getElementById('contact-message').value
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Thanks! Your message has been sent successfully.");
+                    document.getElementById('contact-form').reset();
+                } else {
+                    alert("Notice: " + result.message);
+                }
+            } catch (err) {
+                alert("Failed to submit contact form. Please try again.");
+            }
+        }
     </script>
 </body>
 </html>
