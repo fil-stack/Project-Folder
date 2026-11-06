@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 import smtplib
 from email.mime.text import MIMEText
 import os
@@ -6,8 +6,10 @@ import pandas as pd
 import fitz  # PyMuPDF
 
 app = Flask(__name__)
+OUTPUT_FOLDER = "generated_outputs"
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-# --- Demo File Processing Logic with Intent Support ---
+# --- Demo File Processing & Download Generator Logic ---
 @app.route('/api/process-demo', methods=['POST'])
 def process_demo():
     if 'file' not in request.files:
@@ -22,39 +24,48 @@ def process_demo():
         df = pd.read_csv(file)
         total_rows = len(df)
         
-        if intent == 'fleet_parsing':
-            summary = {"total_records": total_rows, "parsed_mode": "Fleet Dispatch & Mileage Cleansing"}
-        elif intent == 'lead_gen':
-            summary = {"total_leads": total_rows, "parsed_mode": "SAM.gov Contract Lead Extraction"}
-        else:
-            summary = {"total_rows": total_rows, "parsed_mode": "General Custom Data Pipeline"}
+        processed_df = df.head(50)
+        output_filename = f"Cleaned_{intent}_{filename}"
+        output_path = os.path.join(OUTPUT_FOLDER, output_filename)
+        processed_df.to_excel(output_path, index=False)
 
-        processed_df = df.head(10)
         return jsonify({
             'status': 'success',
             'intent_applied': intent,
-            'summary': summary,
             'filename': filename,
-            'sample_data': processed_df.to_dict(orient='records'),
-            'message': f'Successfully parsed {total_rows} rows under {intent} protocol.'
+            'total_rows': total_rows,
+            'download_url': f'/api/download-sample/{output_filename}',
+            'message': f'Success! Processed {total_rows} records under {intent} protocol. Download your sample finished report below.'
         })
 
     elif ext == 'pdf':
         doc = fitz.open(stream=file.read(), filetype="pdf")
         total_pages = len(doc)
-        extracted_text = doc[0].get_text() if total_pages > 0 else ""
         
+        output_filename = f"Extracted_Report_{filename}.txt"
+        output_path = os.path.join(OUTPUT_FOLDER, output_filename)
+        
+        extracted_text = ""
+        for i in range(total_pages):
+            extracted_text += f"--- PAGE {i+1} ------\n" + doc[i].get_text()
+            
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(extracted_text)
+
         return jsonify({
             'status': 'success',
             'intent_applied': intent,
             'filename': filename,
             'total_pages': total_pages,
-            'parsed_mode': f'PDF Document Parsing for {intent}',
-            'extracted_snippet': extracted_text[:300] + "...",
-            'message': f'Successfully extracted text from {total_pages} page(s).'
+            'download_url': f'/api/download-sample/{output_filename}',
+            'message': f'Success! Extracted {total_pages} pages into a structured text report.'
         })
 
-    return jsonify({"status": "error", "message": "Unsupported file format. Please upload CSV or PDF."}), 400
+    return jsonify({"status": "error", "message": "Unsupported file format."}), 400
+
+@app.route('/api/download-sample/<filename>')
+def download_sample(filename):
+    return send_file(os.path.join(OUTPUT_FOLDER, filename), as_attachment=True)
 
 
 # --- Contact Form Backend Endpoint ---
