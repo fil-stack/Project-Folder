@@ -14,6 +14,7 @@ def process_demo():
         return jsonify({"status": "error", "message": "No file uploaded."}), 400
     
     file = request.files['file']
+    intent = request.form.get('intent', 'fleet_parsing') # Captures the selected tile intent!
     filename = file.filename
     ext = filename.split('.')[-1].lower()
 
@@ -23,11 +24,12 @@ def process_demo():
         processed_df = df.head(50)
         return jsonify({
             'status': 'success',
+            'intent_received': intent,
             'filename': filename,
             'total_rows': total_rows,
             'rows_processed': len(processed_df),
             'sample_data': processed_df.to_dict(orient='records'),
-            'message': f"Free Trial Limit Applied: Processed {len(processed_df)} of {total_rows} rows." if total_rows > 50 else "Full file processed!"
+            'message': f'Free Trial Limit Applied: Processed {len(processed_df)} of {total_rows} rows.' if total_rows > 50 else "Full file processed!"
         })
 
     elif ext == 'pdf':
@@ -36,16 +38,17 @@ def process_demo():
         extracted_text = ""
         for i in range(min(2, total_pages)):
             extracted_text += f"--- PAGE {i+1} ---\n" + doc[i].get_text()
-
+        
         return jsonify({
             'status': 'success',
+            'intent_received': intent,
             'filename': filename,
             'total_pages_detected': total_pages,
             'pages_processed': min(2, total_pages),
             'sample_text': extracted_text,
-            'message': f"Free Trial Limit Applied: Extracted {min(2, total_pages)} of {total_pages} pages." if total_pages > 2 else "Full document extracted!"
+            'message': f'Free Trial Limit Applied: Extracted {min(2, total_pages)} of {total_pages} pages.' if total_pages > 2 else "Full document extracted!"
         })
-    
+
     return jsonify({"status": "error", "message": "Unsupported file format. Please upload CSV or PDF."}), 400
 
 
@@ -53,7 +56,7 @@ def process_demo():
 @app.route('/api/contact', methods=['POST'])
 def handle_contact():
     data = request.get_json() or request.form
-    
+
     sender_name = data.get('name', 'N/A')
     sender_email = data.get('email')
     message_text = data.get('message')
@@ -63,7 +66,7 @@ def handle_contact():
 
     subject = f"New Inquiry from {sender_name} via Clearline Website"
     body = f"Name: {sender_name}\nEmail: {sender_email}\n\nMessage:\n{message_text}"
-    
+
     msg = MIMEText(body)
     msg['Subject'] = subject
     msg['From'] = os.environ.get('MAIL_USERNAME', sender_email)
@@ -94,7 +97,6 @@ def handle_contact():
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
