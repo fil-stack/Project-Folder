@@ -99,7 +99,7 @@
         </div>
     </section>
 
-    <!-- Interactive Demo Section with Visual Before/After Workflow Demonstration -->
+    <!-- Interactive Demo Section with Visual Transformation Workflow -->
     <section class="max-w-4xl mx-auto px-4 py-12">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-10 shadow-2xl">
             <div class="text-center mb-8">
@@ -110,7 +110,7 @@
                 </p>
             </div>
 
-            <!-- NEW: Visual Before-and-After Workflow Demonstration Banner -->
+            <!-- Visual Transformation Workflow Banner -->
             <div class="bg-slate-950 border border-indigo-500/30 rounded-xl p-5 mb-8">
                 <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider text-center mb-4">
                     <i class="fas fa-play-circle mr-1"></i> Automated Transformation Pipeline Workflow
@@ -125,7 +125,7 @@
                     </div>
                     <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
                         <span class="font-bold text-emerald-400 block mb-1">2. The "After" (Structured Output)</span>
-                        <span class="text-slate-400">Clean JSON records, verified totals, and instant reports with 0 errors.</span>
+                        <span class="text-slate-400">Clean Excel records, verified totals, and downloadable reports with 0 errors.</span>
                     </div>
                 </div>
             </div>
@@ -141,8 +141,8 @@
                     <span class="text-slate-400">Our Flask pipeline parses headers, rows, and structured text automatically.</span>
                 </div>
                 <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                    <span class="font-bold text-indigo-400 block mb-1">3. Instant Output</span>
-                    <span class="text-slate-400">View cleaned JSON data ready for database ingestion or reporting.</span>
+                    <span class="font-bold text-indigo-400 block mb-1">3. Instant Finished Product</span>
+                    <span class="text-slate-400">Download your clean finished report directly to your device.</span>
                 </div>
             </div>
 
@@ -189,7 +189,7 @@
                 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-md shadow-indigo-600/20">Process Sample File</button>
             </form>
 
-            <div id="demo-results" class="hidden mt-6 bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs font-mono text-emerald-400 overflow-x-auto max-h-60"></div>
+            <div id="demo-results" class="hidden mt-6 bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs text-slate-200 text-center"></div>
         </div>
     </section>
 
@@ -207,7 +207,8 @@
     <section id="contact" class="bg-slate-900/80 border-t border-slate-800 py-12">
         <div class="max-w-3xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-2">Direct Contact & Inquiries</h2>
-            <p class="text-slate-400 text-sm mb-6">Have a custom data entry problem, repetitive paperwork need, or project inquiry? Send us a direct note.</p>
+            <p class="text-slate-400 text-sm mb-2">Have a custom data entry problem, repetitive paperwork need, or project inquiry? Send us a direct note.</p>
+            <p class="text-xs text-slate-500 mb-6">Enterprise onboarding and custom pipelines operate via direct corporate invoicing, ACH/Wire transfer, and government POs.</p>
 
             <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4 max-w-md mx-auto text-left">
                 <div>
@@ -240,20 +241,17 @@
 
         intentCards.forEach(card => {
             card.addEventListener('click', () => {
-                // Reset styling for all cards
                 intentCards.forEach(c => {
                     c.classList.remove('border-indigo-600', 'border-2');
                     c.classList.add('border-slate-800', 'border');
                 });
-                // Highlight clicked card
                 card.classList.remove('border-slate-800', 'border');
                 card.classList.add('border-indigo-600', 'border-2');
-                // Store selected intent value
                 hiddenIntentInput.value = card.getAttribute('data-intent');
             });
         });
 
-        // Interactive Demo Upload Handler
+        // Interactive Demo Upload Handler with Direct File Download
         document.getElementById('demo-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const fileInput = document.getElementById('demo-file');
@@ -267,7 +265,7 @@
             formData.append('intent', selectedIntent);
 
             resultsDiv.classList.remove('hidden');
-            resultsDiv.innerText = "Processing file through Flask backend engine...";
+            resultsDiv.innerHTML = "<span class='text-indigo-400'>Processing file through Clearline automated pipeline...</span>";
 
             try {
                 const response = await fetch('/api/process-demo', {
@@ -275,9 +273,20 @@
                     body: formData
                 });
                 const result = await response.json();
-                resultsDiv.innerText = JSON.stringify(result, null, 2);
+                
+                if (response.ok && result.status === 'success') {
+                    resultsDiv.innerHTML = `
+                        <p class="text-emerald-400 font-bold mb-3"><i class="fas fa-check-circle mr-1"></i> ${result.message}</p>
+                        <a href="${result.download_url}" class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2.5 rounded-lg transition-all shadow-md">
+                            <i class="fas fa-file-download"></i>
+                            <span>Download Completed Report</span>
+                        </a>
+                    `;
+                } else {
+                    resultsDiv.innerHTML = `<span class="text-red-400">Error: ${result.message}</span>`;
+                }
             } catch (err) {
-                resultsDiv.innerText = "Error processing file. Please ensure file is valid CSV or PDF.";
+                resultsDiv.innerHTML = "<span class='text-red-400'>Error processing file. Please ensure valid format.</span>";
             }
         });
 
