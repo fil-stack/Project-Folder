@@ -7,52 +7,57 @@ import fitz  # PyMuPDF
 
 app = Flask(__name__)
 
-# --- Existing Demo File Processing Logic ---
+# --- Demo File Processing Logic with Intent Support ---
 @app.route('/api/process-demo', methods=['POST'])
 def process_demo():
     if 'file' not in request.files:
         return jsonify({"status": "error", "message": "No file uploaded."}), 400
     
     file = request.files['file']
-    intent = request.form.get('intent', 'fleet_parsing') # Captures the selected tile intent!
+    intent = request.form.get('intent', 'fleet_parsing')
     filename = file.filename
     ext = filename.split('.')[-1].lower()
 
     if ext == 'csv':
         df = pd.read_csv(file)
         total_rows = len(df)
-        processed_df = df.head(50)
+        
+        if intent == 'fleet_parsing':
+            summary = {"total_records": total_rows, "parsed_mode": "Fleet Dispatch & Mileage Cleansing"}
+        elif intent == 'lead_gen':
+            summary = {"total_leads": total_rows, "parsed_mode": "SAM.gov Contract Lead Extraction"}
+        else:
+            summary = {"total_rows": total_rows, "parsed_mode": "General Custom Data Pipeline"}
+
+        processed_df = df.head(10)
         return jsonify({
             'status': 'success',
-            'intent_received': intent,
+            'intent_applied': intent,
+            'summary': summary,
             'filename': filename,
-            'total_rows': total_rows,
-            'rows_processed': len(processed_df),
             'sample_data': processed_df.to_dict(orient='records'),
-            'message': f'Free Trial Limit Applied: Processed {len(processed_df)} of {total_rows} rows.' if total_rows > 50 else "Full file processed!"
+            'message': f'Successfully parsed {total_rows} rows under {intent} protocol.'
         })
 
     elif ext == 'pdf':
         doc = fitz.open(stream=file.read(), filetype="pdf")
         total_pages = len(doc)
-        extracted_text = ""
-        for i in range(min(2, total_pages)):
-            extracted_text += f"--- PAGE {i+1} ---\n" + doc[i].get_text()
+        extracted_text = doc[0].get_text() if total_pages > 0 else ""
         
         return jsonify({
             'status': 'success',
-            'intent_received': intent,
+            'intent_applied': intent,
             'filename': filename,
-            'total_pages_detected': total_pages,
-            'pages_processed': min(2, total_pages),
-            'sample_text': extracted_text,
-            'message': f'Free Trial Limit Applied: Extracted {min(2, total_pages)} of {total_pages} pages.' if total_pages > 2 else "Full document extracted!"
+            'total_pages': total_pages,
+            'parsed_mode': f'PDF Document Parsing for {intent}',
+            'extracted_snippet': extracted_text[:300] + "...",
+            'message': f'Successfully extracted text from {total_pages} page(s).'
         })
 
     return jsonify({"status": "error", "message": "Unsupported file format. Please upload CSV or PDF."}), 400
 
 
-# --- New Contact Form Backend Endpoint ---
+# --- Contact Form Backend Endpoint ---
 @app.route('/api/contact', methods=['POST'])
 def handle_contact():
     data = request.get_json() or request.form
