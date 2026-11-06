@@ -245,6 +245,7 @@
 
         intentCards.forEach(card => {
             card.addEventListener('click', () => {
+                // Update tile highlights
                 intentCards.forEach(c => {
                     c.classList.remove('border-indigo-600', 'border-2');
                     c.classList.add('border-slate-800', 'border');
@@ -252,6 +253,13 @@
                 card.classList.remove('border-slate-800', 'border');
                 card.classList.add('border-indigo-600', 'border-2');
                 hiddenIntentInput.value = card.getAttribute('data-intent');
+
+                // Check if file is missing when clicking an intent tile
+                if (!fileInput.files || fileInput.files.length === 0) {
+                    fileAsterisk.classList.remove('hidden');
+                } else {
+                    fileAsterisk.classList.add('hidden');
+                }
             });
         });
 
