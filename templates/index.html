@@ -184,9 +184,9 @@
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-1">
-                        Select File (CSV or PDF) <span class="text-red-500">*</span>
+                        Select File (CSV or PDF) <span id="file-asterisk" class="text-red-500 hidden">* Required</span>
                     </label>
-                    <input type="file" id="demo-file" accept=".csv, .pdf" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-slate-300 text-xs file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer">
+                    <input type="file" id="demo-file" accept=".csv, .pdf" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-slate-300 text-xs file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer">
                 </div>
                 <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-md shadow-indigo-600/20">Process Sample File</button>
             </form>
@@ -240,6 +240,8 @@
         // Intent Tile Selector Logic
         const intentCards = document.querySelectorAll('.intent-card');
         const hiddenIntentInput = document.getElementById('demo-intent');
+        const fileInput = document.getElementById('demo-file');
+        const fileAsterisk = document.getElementById('file-asterisk');
 
         intentCards.forEach(card => {
             card.addEventListener('click', () => {
@@ -253,14 +255,26 @@
             });
         });
 
-        // Interactive Demo Upload Handler with Direct File Download
+        // Hide asterisk as soon as a file is chosen
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                fileAsterisk.classList.add('hidden');
+            }
+        });
+
+        // Interactive Demo Upload Handler with Dynamic Validation
         document.getElementById('demo-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const fileInput = document.getElementById('demo-file');
             const resultsDiv = document.getElementById('demo-results');
             const selectedIntent = hiddenIntentInput.value;
 
-            if (!fileInput.files.length) return;
+            // Check if file is missing when submitting
+            if (!fileInput.files.length) {
+                fileAsterisk.classList.remove('hidden');
+                resultsDiv.classList.remove('hidden');
+                resultsDiv.innerHTML = "<span class='text-red-400'>Please select a file to process.</span>";
+                return;
+            }
 
             const formData = new FormData();
             formData.append('file', fileInput.files[0]);
