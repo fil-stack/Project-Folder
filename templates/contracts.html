@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clearline Digital Solutions - Contract Pipeline</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f7f6; color: #333; }
+        .container { max-width: 1300px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        h1 { color: #004080; margin-bottom: 5px; }
+        h3 { color: #666; margin-top: 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; font-size: 14px; }
+        th { background-color: #004080; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #004080; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn-action { background-color: #004080; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: bold; white-space: nowrap; }
+        .btn-action:hover { background-color: #00264d; }
+        .btn-sam { background-color: #198754; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: bold; white-space: nowrap; }
+        .btn-sam:hover { background-color: #146c43; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a class="back-link" href="/">&larr; Back to Document Compliance Portal</a>
+        <h1>Clearline Digital Solutions LLC</h1>
+        <h3>Refined Federal Tech Leads (NAICS 541511)</h3>
+
+        {% if contracts %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contracting Office</th>
+                        <th>Notice ID</th>
+                        <th>Type</th>
+                        <th>Opportunity Title</th>
+                        <th>Response Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contract in contracts %}
+                    <tr>
+                        <td>{{ contract['Contracting Office'] }}</td>
+                        <td>{{ contract['Notice ID'] }}</td>
+                        <td>{{ contract['Contract Opportunity Type'] }}</td>
+                        <td>{{ contract['Opportunity Title'] }}</td>
+                        <td>{{ contract['Current Response Date'] }}</td>
+                        <td>{{ contract['Status'] }}</td>
+                        <td>
+                            <div class="actions">
+                                {% if contract.get('SAM Link') %}
+                                    <a href="{{ contract['SAM Link'] }}" target="_blank" rel="noopener noreferrer" class="btn-sam">View on SAM.gov</a>
+                                {% endif %}
+                                <a href="/" class="btn-action">Analyze RFP</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No refined contracts found. Run your data pipeline script to populate leads.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

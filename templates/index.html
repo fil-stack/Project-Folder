@@ -3,343 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clearline Digital Solutions LLC | Custom Software & Data Systems</title>
+    <title>Clearline Digital Solutions LLC | SAM.gov & Document Compliance Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col justify-between">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <!-- Header Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-indigo-500/30">C</div>
-                <span class="font-bold text-lg tracking-tight text-white">Clearline Digital Solutions</span>
+                <div class="bg-indigo-600 text-white font-bold h-10 w-10 rounded-lg flex items-center justify-center text-xl shadow-lg">C</div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight block">Clearline Digital Solutions LLC</span>
+                    <span class="text-xs text-indigo-400 font-medium">SAM.gov Active Contracting Partner | UEI: DEWLJ1MGJ495</span>
+                </div>
             </div>
-            <a href="#contact" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-md shadow-indigo-600/20">Get in Touch</a>
+            <div class="flex items-center space-x-4">
+                <a href="#portal" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-all shadow-md">
+                    Extraction Portal
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="py-16 md:py-24 max-w-5xl mx-auto px-4 text-center">
-        <div class="inline-flex items-center space-x-2 bg-indigo-950/80 border border-indigo-800/50 text-indigo-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>SAM.gov Active Contracting Partner | UEI: DEWLJ1MGJ495</span>
+    <!-- Hero / Government Entity Profile Section -->
+    <section class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs px-4 py-1.5 rounded-full mb-6 font-medium">
+            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>SAM.gov Active Contracting Partner &bull; UEI: DEWLJ1MGJ495</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-            Custom Software Engineering & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Automated Data Systems</span>
+        
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+            Custom Software Engineering & <span class="text-indigo-400">Automated Data Systems</span>
         </h1>
-        <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed">
+        <p class="text-slate-400 text-base max-w-2xl mx-auto mb-8">
             Eliminate repetitive daily employee data entry, streamline financial records, and automate form-filling pipelines for commercial enterprises and government agencies.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="/static/Clearline_Capability_Statement.pdf" download class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg shadow-indigo-600/30 transition-all flex items-center space-x-2">
-                <i class="fas fa-file-arrow-down"></i>
-                <span>Download Capabilities Statement</span>
-            </a>
-            <a href="#contact" class="border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 font-semibold px-6 py-3 rounded-lg transition-all">Contact Us</a>
-        </div>
-    </section>
 
-    <!-- Government Entity Profile Card -->
-    <section class="max-w-5xl mx-auto px-4 mb-16">
-        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-            <p class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">Government Entity Profile</p>
-            <h2 class="text-xl font-bold text-white mb-3">Clearline Digital Solutions LLC</h2>
-            <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-300">
-                <p><span class="text-slate-500">UEI:</span> DEWLJ1MGJ495 | <span class="text-emerald-400 font-medium">Status: Active / Eligible for Award</span></p>
-                <p><span class="text-slate-500">Primary NAICS:</span> 541511, 541512, 518210</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Services Grid -->
-    <section class="max-w-6xl mx-auto px-4 py-12">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white mb-3">Our Core Capabilities</h2>
-            <p class="text-slate-400 max-w-2xl mx-auto">Engineered to eliminate manual admin overhead, protect profit margins, and maintain absolute data integrity.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-            <!-- Service 1 -->
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
-                <div class="w-10 h-10 rounded-lg bg-indigo-900/50 text-indigo-400 flex items-center justify-center mb-4 text-lg"><i class="fas fa-bolt"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Automated Form & Document Filling</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Eliminate daily manual paperwork. Our custom scripts take raw employee inputs or dispatch logs and instantly generate complete PDF reports.</p>
-            </div>
-
-            <!-- Service 2 -->
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
-                <div class="w-10 h-10 rounded-lg bg-emerald-900/50 text-emerald-400 flex items-center justify-center mb-4 text-lg"><i class="fas fa-file-invoice-dollar"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Pre-CPA Data Cleansing & Anomaly Detection</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Save thousands on billable accounting hours. We parse raw spreadsheets, invoices, and bank statements to flag duplicate entries, missing tags, or mismatched totals.</p>
-            </div>
-
-            <!-- Service 3 -->
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
-                <div class="w-10 h-10 rounded-lg bg-purple-900/50 text-purple-400 flex items-center justify-center mb-4 text-lg"><i class="fas fa-brain"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Workflow Automation & AI Tasks</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Connect your everyday software tools seamlessly. We deploy high-reliability execution pipelines that automate data transfer, metadata extraction, and notifications.</p>
-            </div>
-        </div>
-
-        <!-- ROI / Hours Saved Callout Banner -->
-        <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-slate-950 border border-indigo-800/40 rounded-2xl p-8 text-center max-w-4xl mx-auto">
-            <h3 class="text-2xl font-bold text-white mb-2">Stop Paying Employees To Do Manual Data Entry</h3>
-            <p class="text-slate-300 max-w-2xl mx-auto text-sm leading-relaxed mb-6">
-                An employee spending 2 hours per day copying data into spreadsheets costs a business over 40 hours a month in administrative overhead (~$1,000–$1,500/mo). Clearline's automated ingestion pipelines run in seconds with 0 copy-paste errors.
-            </p>
-            <div class="inline-flex items-center space-x-6 text-sm text-indigo-300">
-                <div><span class="text-2xl font-bold text-white block">90%+</span> Hours Cut</div>
-                <div class="h-8 w-px bg-slate-800"></div>
-                <div><span class="text-2xl font-bold text-white block">100%</span> Local Data Privacy</div>
-                <div class="h-8 w-px bg-slate-800"></div>
-                <div><span class="text-2xl font-bold text-white block">0</span> Copy-Paste Errors</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Demo Section with Visual Transformation Workflow -->
-    <section class="max-w-4xl mx-auto px-4 py-12">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-10 shadow-2xl">
-            <div class="text-center mb-8">
-                <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Live Interactive Feature</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Test Our Automated Parsing Engine</h2>
-                <p class="text-slate-400 text-sm mt-2 max-w-xl mx-auto">
-                    See how our backend automatically extracts, cleans, and structures raw files into usable reports.
-                </p>
-            </div>
-
-            <!-- Visual Transformation Workflow Banner -->
-            <div class="bg-slate-950 border border-indigo-500/30 rounded-xl p-5 mb-8">
-                <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider text-center mb-4">
-                    <i class="fas fa-play-circle mr-1"></i> Automated Transformation Pipeline Workflow
-                </p>
-                <div class="grid md:grid-cols-3 gap-4 text-center items-center text-xs">
-                    <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                        <span class="font-bold text-amber-400 block mb-1">1. The "Before" (Raw Input)</span>
-                        <span class="text-slate-400">Unformatted CSV logs, messy invoices, or raw PDF dispatches.</span>
-                    </div>
-                    <div class="text-indigo-400 font-bold hidden md:block">
-                        <i class="fas fa-arrow-right text-lg animate-pulse"></i>
-                    </div>
-                    <div class="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                        <span class="font-bold text-emerald-400 block mb-1">2. The "After" (Structured Output)</span>
-                        <span class="text-slate-400">Clean Excel records, verified totals, and downloadable reports with 0 errors.</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- How it works instructions -->
-            <div class="grid md:grid-cols-3 gap-4 mb-8 text-center text-xs">
-                <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                    <span class="font-bold text-indigo-400 block mb-1">1. Select Automation Intent</span>
-                    <span class="text-slate-400">Click an automation tile and choose or upload a file.</span>
-                </div>
-                <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                    <span class="font-bold text-indigo-400 block mb-1">2. Run Extraction Engine</span>
-                    <span class="text-slate-400">Our Flask pipeline parses headers, rows, and structured text automatically.</span>
-                </div>
-                <div class="bg-slate-950/60 p-3 rounded-lg border border-slate-800">
-                    <span class="font-bold text-indigo-400 block mb-1">3. Instant Finished Product</span>
-                    <span class="text-slate-400">Download your clean finished report directly to your device.</span>
-                </div>
-            </div>
-
-            <!-- Sample Download Helpers -->
-            <div class="flex justify-center items-center space-x-4 mb-6">
-                <a href="/static/demo_leads.csv" download class="text-xs text-indigo-400 hover:text-indigo-300 underline flex items-center space-x-1">
-                    <i class="fas fa-download"></i><span>Download Sample CSV</span>
+        <!-- Government Entity Card & Capabilities Download -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="{{ url_for('static', filename='Clearline_Capabilities_Statement.pdf') }}" download class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Download Capabilities Statement</span>
+    </a>
+                <a href="#portal" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold px-6 py-3 rounded-xl transition-all">
+                    Access Extraction Portal
                 </a>
             </div>
+        <!-- Entity Profile Box -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 max-w-3xl mx-auto text-left shadow-xl">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2">Government Entity Profile</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-300">
+                <div>
+                    <span class="text-slate-500 block text-xs">Entity Name</span>
+                    <strong class="text-white">Clearline Digital Solutions LLC</strong>
+                </div>
+                <div>
+                    <span class="text-slate-500 block text-xs">UEI & Status</span>
+                    <span class="text-emerald-400 font-semibold">DEWLJ1MGJ495 (Active)</span>
+                </div>
+                <div>
+                    <span class="text-slate-500 block text-xs">Primary NAICS</span>
+                    <span>541511, 541512, 518210</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <form id="demo-form" class="space-y-5 max-w-lg mx-auto">
+    <!-- Main Extraction Portal Section -->
+    <main id="portal" class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full scroll-mt-24">
+        
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white mb-2">SAM.gov & Document Extraction Portal</h2>
+            <p class="text-slate-400 text-sm max-w-xl mx-auto">Upload complex government solicitations or data files. Our extraction engine parses requirements, structures compliance fields, and delivers audit-ready deliverables.</p>
+        </div>
+
+        <!-- Upload Form Card -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+            <form id="uploadForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Select Extraction Protocol</label>
+                    <select name="intent" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-indigo-500">
+                        <option value="sam_gov_parsing">SAM.gov Solicitation & Compliance Requirement Extraction</option>
+                        <option value="b2b_document_parsing">B2B Document Ingestion & Tabular Structuring</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Business Email</label>
+                    <input type="email" name="email" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Upload Source Document (PDF, CSV, XLSX, DOCX)</label>
+                    <input type="file" name="file" required class="w-full text-sm text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer bg-slate-950 border border-slate-800 rounded-xl">
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-indigo-600/20">
+                    Run Automated Extraction Engine
+                </button>
+            </form>
+        </div>
+
+        <!-- Results / Teaser Preview Section (Hidden Initially) -->
+        <div id="resultsSection" class="hidden mt-10 space-y-6">
+            <div class="bg-emerald-950/40 border border-emerald-500/30 rounded-2xl p-6">
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="h-3 w-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <h3 class="font-bold text-emerald-400 text-lg">Extraction Complete & Verified</h3>
+                </div>
+                <p id="successMessage" class="text-sm text-slate-300 mb-4"></p>
                 
-                <!-- Interactive Automation Intent Matrix -->
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2">Select Automation Intent</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="intent-grid">
-                        <div class="intent-card cursor-pointer bg-slate-950 border-2 border-indigo-600 rounded-xl p-3 text-left transition-all hover:border-indigo-400" data-intent="fleet_parsing">
-                            <i class="fas fa-truck text-indigo-400 text-sm mb-1.5 block"></i>
-                            <p class="text-xs font-bold text-white">Fleet Log Parsing</p>
-                            <p class="text-[10px] text-slate-400 leading-tight mt-1">Clean raw dispatch and mileage sheets.</p>
-                        </div>
-                        <div class="intent-card cursor-pointer bg-slate-950 border border-slate-800 rounded-xl p-3 text-left transition-all hover:border-indigo-400" data-intent="lead_gen">
-                            <i class="fas fa-filter text-purple-400 text-sm mb-1.5 block"></i>
-                            <p class="text-xs font-bold text-white">Lead Extraction</p>
-                            <p class="text-[10px] text-slate-400 leading-tight mt-1">Filter contracting leads and metadata.</p>
-                        </div>
-                        <div class="intent-card cursor-pointer bg-slate-950 border border-slate-800 rounded-xl p-3 text-left transition-all hover:border-indigo-400" data-intent="custom_data">
-                            <i class="fas fa-database text-emerald-400 text-sm mb-1.5 block"></i>
-                            <p class="text-xs font-bold text-white">Custom Pipeline</p>
-                            <p class="text-[10px] text-slate-400 leading-tight mt-1">Transform unorganized PDF or CSV records.</p>
-                        </div>
+                <!-- Teaser Table Preview (First 5 Rows) -->
+                <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950 mb-6">
+                    <table id="previewTable" class="w-full text-left text-xs text-slate-300">
+                        <thead id="tableHeader" class="bg-slate-900 text-slate-400 border-b border-slate-800"></thead>
+                        <tbody id="tableBody" class="divide-y divide-slate-900"></tbody>
+                    </table>
+                </div>
+
+                <!-- Paywall / Bundle Unlock Box -->
+                <div class="bg-slate-900 border border-indigo-500/40 rounded-xl p-6 text-center space-y-4 shadow-xl">
+                    <div class="inline-block bg-indigo-500/10 text-indigo-400 font-semibold px-4 py-1 rounded-full text-xs border border-indigo-500/20">
+                        Secure B2B Data Bundle
                     </div>
-                    <input type="hidden" id="demo-intent" name="intent" value="fleet_parsing">
+                    <h4 class="text-xl font-bold text-white">Unlock Complete Dataset & Executive Word Report</h4>
+                    <p class="text-slate-400 text-sm max-w-md mx-auto">Get full access to all extracted records, compliance matrices, and downloadable bundles (.xlsx + .docx).</p>
+                    
+                    <div class="pt-2">
+                        <button id="payUnlockBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-600/20 text-base">
+                            Unlock Full Bundle — $49 (Instant Access)
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-500">Includes both the Master Excel Workbook and Executive Word Compliance Report.</p>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Business Email</label>
-                    <input type="email" id="demo-email" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2.5 text-slate-200 text-xs focus:outline-none focus:border-indigo-500">
+                <!-- Unlocked Downloads (Hidden until payment simulated) -->
+                <div id="downloadContainer" class="hidden mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a id="downloadXlsx" href="#" class="flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-xl transition-all shadow-md">
+                        <span>Download Master Excel (.xlsx)</span>
+                    </a>
+                    <a id="downloadDocx" href="#" class="flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 rounded-xl transition-all shadow-md">
+                        <span>Download Executive Report (.docx)</span>
+                    </a>
                 </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">
-                        Select File (CSV or PDF) <span id="file-asterisk" class="text-red-500 hidden">* Required</span>
-                    </label>
-                    <input type="file" id="demo-file" accept=".csv, .pdf" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-slate-300 text-xs file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer">
-                </div>
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-md shadow-indigo-600/20">Process Sample File</button>
-            </form>
-
-            <div id="demo-results" class="hidden mt-6 bg-slate-950 p-4 rounded-lg border border-slate-800 text-xs text-slate-200 text-center"></div>
+            </div>
         </div>
-    </section>
 
-    <!-- Privacy Disclaimer Banner -->
-    <section class="max-w-4xl mx-auto px-4 mb-16">
-        <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-6 text-center text-xs text-slate-400">
-            <h4 class="font-semibold text-slate-200 mb-1">Strict Data Security & Confidentiality</h4>
-            <p class="leading-relaxed max-w-2xl mx-auto">
-                Clearline Digital Solutions LLC operates as a technical software service provider. All client processing files are handled with absolute data integrity and confidentiality.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-slate-900/80 border-t border-slate-800 py-12">
-        <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold text-white mb-2">Direct Contact & Inquiries</h2>
-            <p class="text-slate-400 text-sm mb-2">Have a custom data entry problem, repetitive paperwork need, or project inquiry? Send us a direct note.</p>
-            <p class="text-xs text-slate-500 mb-6">Enterprise onboarding and custom pipelines operate via direct corporate invoicing, ACH/Wire transfer, and government POs.</p>
-
-            <form id="contact-form" onsubmit="submitContactForm(event)" class="space-y-4 max-w-md mx-auto text-left">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
-                    <input type="text" id="contact-name" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Business Email</label>
-                    <input type="email" id="contact-email" required placeholder="john@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Message / Project Details</label>
-                    <textarea id="contact-message" required rows="3" placeholder="Tell us about your project or data entry bottleneck..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 text-slate-200 text-sm focus:outline-none focus:border-indigo-500"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg text-sm transition-all shadow-md shadow-indigo-600/20">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500 space-y-2">
+        <p>Clearline Digital Solutions LLC &bull; UEI: DEWLJ1MGJ495 &bull; Strict Local Data Security & Compliance Architecture</p>
         <p>&copy; 2026 Clearline Digital Solutions LLC. All rights reserved.</p>
     </footer>
 
-    <!-- Frontend Form Handling & Intent Selector Scripts -->
+    <!-- Frontend Script for Handling Upload & Paywall Interaction -->
     <script>
-        // Intent Tile Selector Logic
-        const intentCards = document.querySelectorAll('.intent-card');
-        const hiddenIntentInput = document.getElementById('demo-intent');
-        const fileInput = document.getElementById('demo-file');
-        const fileAsterisk = document.getElementById('file-asterisk');
+        const form = document.getElementById('uploadForm');
+        const resultsSection = document.getElementById('resultsSection');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const tableHeader = document.getElementById('tableHeader');
+        const tableBody = document.getElementById('tableBody');
+        const payUnlockBtn = document.getElementById('payUnlockBtn');
+        const downloadContainer = document.getElementById('downloadContainer');
+        const downloadXlsx = document.getElementById('downloadXlsx');
+        const downloadDocx = document.getElementById('downloadDocx');
 
-        intentCards.forEach(card => {
-            card.addEventListener('click', () => {
-                // Update tile highlights
-                intentCards.forEach(c => {
-                    c.classList.remove('border-indigo-600', 'border-2');
-                    c.classList.add('border-slate-800', 'border');
-                });
-                card.classList.remove('border-slate-800', 'border');
-                card.classList.add('border-indigo-600', 'border-2');
-                hiddenIntentInput.value = card.getAttribute('data-intent');
+        let currentXlsx = '';
+        let currentDocx = '';
 
-                // Check if file is missing when clicking an intent tile
-                if (!fileInput.files || fileInput.files.length === 0) {
-                    fileAsterisk.classList.remove('hidden');
-                } else {
-                    fileAsterisk.classList.add('hidden');
-                }
-            });
-        });
-
-        // Hide asterisk as soon as a file is chosen
-        fileInput.addEventListener('change', () => {
-            if (fileInput.files.length > 0) {
-                fileAsterisk.classList.add('hidden');
-            }
-        });
-
-        // Interactive Demo Upload Handler with Dynamic Validation
-        document.getElementById('demo-form').addEventListener('submit', async function(e) {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const resultsDiv = document.getElementById('demo-results');
-            const selectedIntent = hiddenIntentInput.value;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Running Extraction Pipeline...';
 
-            // Check if file is missing when submitting
-            if (!fileInput.files.length) {
-                fileAsterisk.classList.remove('hidden');
-                resultsDiv.classList.remove('hidden');
-                resultsDiv.innerHTML = "<span class='text-red-400'>Please select a file to process.</span>";
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append('file', fileInput.files[0]);
-            formData.append('intent', selectedIntent);
-
-            resultsDiv.classList.remove('hidden');
-            resultsDiv.innerHTML = "<span class='text-indigo-400'>Processing file through Clearline automated pipeline...</span>";
+            const formData = new FormData(form);
 
             try {
-                const response = await fetch('/api/process-demo', {
+                const response = await fetch('/process', {
                     method: 'POST',
                     body: formData
                 });
-                const result = await response.json();
-                
-                if (response.ok && result.status === 'success') {
-                    resultsDiv.innerHTML = `
-                        <p class="text-emerald-400 font-bold mb-3"><i class="fas fa-check-circle mr-1"></i> ${result.message}</p>
-                        <a href="${result.download_url}" class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2.5 rounded-lg transition-all shadow-md">
-                            <i class="fas fa-file-download"></i>
-                            <span>Download Completed Report</span>
-                        </a>
-                    `;
+                const data = await response.json();
+
+                if (response.ok) {
+                    successMessage.textContent = `${data.message} Showing live preview of first 5 extracted records (Full dataset locked behind bundle purchase).`;
+                    
+                    // Render Table Headers
+                    tableHeader.innerHTML = `<tr>${data.columns.map(col => `<th class="px-4 py-3 font-semibold">${col}</th>`).join('')}</tr>`;
+                    
+                    // Render Table Body Preview
+                    tableBody.innerHTML = data.preview.map(row => {
+                        return `<tr class="hover:bg-slate-900/50">${data.columns.map(col => `<td class="px-4 py-3 truncate max-w-xs">${row[col] ?? ''}</td>`).join('')}</tr>`;
+                    }).join('');
+
+                    currentXlsx = data.xlsx_file;
+                    currentDocx = data.docx_file;
+
+                    resultsSection.classList.remove('hidden');
+                    resultsSection.scrollIntoView({ behavior: 'smooth' });
                 } else {
-                    resultsDiv.innerHTML = `<span class="text-red-400">Error: ${result.message}</span>`;
+                    alert('Error: ' + data.error);
                 }
             } catch (err) {
-                resultsDiv.innerHTML = "<span class='text-red-400'>Error processing file. Please ensure valid format.</span>";
+                alert('An error occurred during file processing.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Run Automated Extraction Engine';
             }
         });
 
-        // Contact Form Endpoint Handler
-        async function submitContactForm(event) {
-            event.preventDefault();
-            const formData = {
-                name: document.getElementById('contact-name').value,
-                email: document.getElementById('contact-email').value,
-                message: document.getElementById('contact-message').value
-            };
-
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                const result = await response.json();
-                if (response.ok) {
-                    alert("Thanks! Your message has been sent successfully.");
-                    document.getElementById('contact-form').reset();
-                } else {
-                    alert("Notice: " + result.message);
-                }
-            } catch (err) {
-                alert("Failed to submit contact form. Please try again.");
-            }
-        }
+        // Simulate secure payment gateway unlock
+        payUnlockBtn.addEventListener('click', () => {
+            payUnlockBtn.textContent = 'Processing Secure Payment...';
+            setTimeout(() => {
+                payUnlockBtn.parentElement.parentElement.classList.add('hidden'); // hide paywall box
+                downloadContainer.classList.remove('hidden'); // reveal downloads
+                downloadXlsx.href = `/download/${currentXlsx}`;
+                downloadDocx.href = `/download/${currentDocx}`;
+            }, 1000);
+        });
     </script>
 </body>
 </html>
